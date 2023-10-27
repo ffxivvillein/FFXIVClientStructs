@@ -8,7 +8,7 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 
 [Agent(AgentId.Context)]
-[StructLayout(LayoutKind.Explicit, Size = 0x1750)]
+[StructLayout(LayoutKind.Explicit, Size = 0x1748)] // 6.4
 public unsafe partial struct AgentContext
 {
     public static AgentContext* Instance()
@@ -70,7 +70,7 @@ public unsafe partial struct AgentContext
     [MemberFunction("E8 ?? ?? ?? ?? 40 80 F6")]
     public partial void ClearMenu();
 
-    [MemberFunction("E8 ?? ?? ?? ?? 41 BF ?? ?? ?? ?? 48 8D 44 24 ?? 41 8B D7")]
+    [MemberFunction("E8 ?? ?? ?? ?? 41 BF ?? ?? ?? ?? 48 8D 54 24")] // 6.4
     [GenerateCStrOverloads]
     public partial void SetMenuTitle(byte* text);
 

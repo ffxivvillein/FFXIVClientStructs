@@ -7,7 +7,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 // ctor "E8 ?? ?? ?? ?? EB 03 48 8B C5 45 33 C9 48 89 47 20"
 [Agent(AgentId.Lobby)]
 [VTableAddress("48 8D 05 ?? ?? ?? ?? 48 89 71 18 48 89 01", 3)]
-[StructLayout(LayoutKind.Explicit, Size = 0x1DD0)]
+[StructLayout(LayoutKind.Explicit, Size = 0x1C58)] // 6.4
 public unsafe partial struct AgentLobby
 {
     public static AgentLobby* Instance()
@@ -18,23 +18,23 @@ public unsafe partial struct AgentLobby
     [FieldOffset(0x40)] public LobbyData LobbyData; // for lack of a better name
     [FieldOffset(0xA00)] public UIModule* UIModule;
     
-    [FieldOffset(0xA40)] public ExcelSheet* ErrorSheet;
-    [FieldOffset(0xA48)] public ExcelSheet* LobbySheet;
+    [FieldOffset(0x8C8)] public ExcelSheet* ErrorSheet; // 6.4
+    [FieldOffset(0x8D0)] public ExcelSheet* LobbySheet;
     //[FieldOffset(0xA50)] public NetworkModuleProxy* NetworkModuleProxy;
 
-    [FieldOffset(0x10E0)] public sbyte ServiceAccountIndex;
-    [FieldOffset(0x10E1)] public sbyte SelectedCharacterIndex; // index in CharaSelectCharacterList
+    [FieldOffset(0xF68)] public sbyte ServiceAccountIndex;
+    [FieldOffset(0xF69)] public sbyte SelectedCharacterIndex; // index in CharaSelectCharacterList
     [Obsolete("Renamed to SelectedCharacterContentId")]
-    [FieldOffset(0x10E8)] public ulong SelectedCharacterId;
-    [FieldOffset(0x10E8)] public ulong SelectedCharacterContentId;
-    [FieldOffset(0x10F0)] public byte DataCenter;
+    [FieldOffset(0xF70)] public ulong SelectedCharacterId;
+    [FieldOffset(0xF70)] public ulong SelectedCharacterContentId;
+    [FieldOffset(0xF78)] public byte DataCenter;
 
-    [FieldOffset(0x10F2)] public short WorldIndex; // index in CurrentDataCenterWorlds
-    [FieldOffset(0x10F4)] public ushort WorldId;
+    [FieldOffset(0xF7A)] public short WorldIndex; // index in CurrentDataCenterWorlds
+    [FieldOffset(0xF7C)] public ushort WorldId;
 
-    [FieldOffset(0x1110)] public uint IdleTime;
+    [FieldOffset(0xF98)] public uint IdleTime;
 
-    [FieldOffset(0x1228)] public bool TemporaryLocked; // "Please wait and try logging in later."
+    [FieldOffset(0x10B0)] public bool TemporaryLocked; // "Please wait and try logging in later."
 
     [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 07 C6 87 ?? ?? ?? ?? ?? 48 8B 4C 24")]
     public readonly partial void UpdateCharaSelectDisplay(sbyte index, bool a2);
@@ -55,7 +55,7 @@ public unsafe partial struct LobbyData
     public partial CharaSelectCharacterEntry* GetCharacterEntryByIndex(int a2, int worldIndex, int characterMappingIndex);
 }
 
-[VTableAddress("48 8D 05 ?? ?? ?? ?? 48 8B F9 48 89 01 48 81 C1 ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8D 8F", 3)]
+[VTableAddress("48 8D 05 ?? ?? ?? ?? 48 89 06 48 8D 4E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E ?? 48 89 6E", 3)] // 6.4
 [StructLayout(LayoutKind.Explicit, Size = 0x848)]
 public unsafe partial struct LobbyUIClient
 {

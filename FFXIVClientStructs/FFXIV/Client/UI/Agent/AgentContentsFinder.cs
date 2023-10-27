@@ -7,7 +7,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 //   Client::UI::Agent::AgentInterface
 //     Component::GUI::AtkModuleInterface::AtkEventInterface
 [Agent(AgentId.ContentsFinder)]
-[StructLayout(LayoutKind.Explicit, Size = 0x2088)]
+[StructLayout(LayoutKind.Explicit, Size = 0x2068)] // 6.4
 public unsafe partial struct AgentContentsFinder
 {
     public static AgentContentsFinder* Instance() => (AgentContentsFinder*)AgentModule.Instance()->GetAgentByInternalId(AgentId.ContentsFinder);
@@ -29,11 +29,12 @@ public unsafe partial struct AgentContentsFinder
     [FixedSizeArray<ItemReward>(15)] 
     [FieldOffset(0x8F0)] public fixed byte ItemRewardArray[0x130 * 15]; // E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ?? 89 5E 2C
     
-    [FieldOffset(0x1B6C)] public int SelectedDutyId; // ContentFinderCondition rowId for duties, ContentRoulette rowId for roulette
-    [FieldOffset(0x1B78)] public byte NumCollectedRewards; // Value used for "Reward already received"
+    // 6.4
+    [FieldOffset(0x1B4C)] public int SelectedDutyId; // ContentFinderCondition rowId for duties, ContentRoulette rowId for roulette
+    [FieldOffset(0x1B58)] public byte NumCollectedRewards; // Value used for "Reward already received"
 
     [FixedSizeArray<Utf8String>(10)] 
-    [FieldOffset(0x1BC8)] public fixed byte Strings[0x68 * 10]; // Tooltips and Category headers, ie "Gil", "Trials (Endwalker)"
+    [FieldOffset(0x1BA8)] public fixed byte Strings[0x68 * 10]; // Tooltips and Category headers, ie "Gil", "Trials (Endwalker)"
 
     [FixedSizeArray<ContentsRouletteRole>(11)]
     [FieldOffset(0x2007)] public fixed byte ContentRouletteRoleBonus[11];

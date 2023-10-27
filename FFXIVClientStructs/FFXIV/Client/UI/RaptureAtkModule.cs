@@ -8,7 +8,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI;
 // Client::UI::RaptureAtkModule
 //   Component::GUI::AtkModule
 //     Component::GUI::AtkModuleInterface
-[StructLayout(LayoutKind.Explicit, Size = 0x28C80)]
+[StructLayout(LayoutKind.Explicit, Size = 0x289F8)] // 6.4
 public unsafe partial struct RaptureAtkModule
 {
     public static RaptureAtkModule* Instance() => UIModule.Instance()->GetRaptureAtkModule();
@@ -23,8 +23,8 @@ public unsafe partial struct RaptureAtkModule
 
     [FieldOffset(0x1B590), Obsolete("Use RaptureAtkUnitManager.Flags")] public RaptureAtkModuleFlags Flags; // TODO: this is actually at RaptureAtkUnitManager + 0x9C80
     
-    [FieldOffset(0x1B8A0)] public int NameplateInfoCount;
-    [FieldOffset(0x1B8A8)] public NamePlateInfo NamePlateInfoArray; // 0-50, &NamePlateInfoArray[i]
+    [FieldOffset(0x1B618)] public int NameplateInfoCount; // 6.4
+    [FieldOffset(0x1B620)] public NamePlateInfo NamePlateInfoArray; // 0-50, &NamePlateInfoArray[i]
 
     [FieldOffset(0x28C38)] public AtkTexture CharaViewDefaultBackgroundTexture; // "ui/common/CharacterBg.tex" (or _hr1 variant)
 

@@ -19,10 +19,10 @@ public struct WhiteMageGauge
 [StructLayout(LayoutKind.Explicit, Size = 0x10)]
 public struct ScholarGauge
 {
-    [FieldOffset(0x08)] public byte Aetherflow;
-    [FieldOffset(0x09)] public byte FairyGauge;
-    [FieldOffset(0x0A)] public short SeraphTimer;
-    [FieldOffset(0x0C)] public byte DismissedFairy;
+    [FieldOffset(0x0A)] public byte Aetherflow;     // 6.4
+    [FieldOffset(0x0B)] public byte FairyGauge;     // 6.4
+    [FieldOffset(0x0C)] public short SeraphTimer;   // 6.4
+    [FieldOffset(0x0E)] public byte DismissedFairy; // 6.4
 }
 
 [StructLayout(LayoutKind.Explicit, Size = 0x10)]

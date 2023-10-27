@@ -4,7 +4,7 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 
 [Agent(AgentId.FieldMarker)]
-[StructLayout(LayoutKind.Explicit, Size = 0xCE0)]
+[StructLayout(LayoutKind.Explicit, Size = 0xCD8)] // 6.4
 public unsafe partial struct AgentFieldMarker
 {
     [FieldOffset(0x00)] public AgentInterface AgentInterface;

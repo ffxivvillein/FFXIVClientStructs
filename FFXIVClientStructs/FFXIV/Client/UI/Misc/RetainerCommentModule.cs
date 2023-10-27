@@ -7,7 +7,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Misc;
 // Client::UI::Misc::RetainerCommentModule
 //   Client::UI::Misc::UserFileManager::UserFileEvent
 // ctor "E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 49 8B D4 E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 48 8B D7"
-[StructLayout(LayoutKind.Explicit, Size = 0x5A0)]
+[StructLayout(LayoutKind.Explicit, Size = 0x450)] // 6.4
 public unsafe partial struct RetainerCommentModule
 {
     public static RetainerCommentModule* Instance() => Framework.Instance()->GetUiModule()->GetRetainerCommentModule();
@@ -19,7 +19,7 @@ public unsafe partial struct RetainerCommentModule
     [GenerateCStrOverloads]
     public partial void* SetComment(ulong retainerID, byte* comment);
 
-    [MemberFunction("32 C0 0F 1F 40 00 66 66 0F 1F 84 ?? 00 00 00 00 44 0F B6 C0 4C 8D 51")]
+    [MemberFunction("4C 8B D9 48 85 D2 74 27")] // 6.4
     public partial byte* GetComment(ulong retainerId);
     
     [StructLayout(LayoutKind.Sequential, Size = 0x410)]

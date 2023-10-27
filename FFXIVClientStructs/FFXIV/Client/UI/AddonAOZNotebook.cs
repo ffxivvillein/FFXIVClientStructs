@@ -6,7 +6,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI;
 //   Component::GUI::AtkUnitBase
 //     Component::GUI::AtkEventListener
 [Addon("AOZNotebook")]
-[StructLayout(LayoutKind.Explicit, Size = 0xCC8)]
+[StructLayout(LayoutKind.Explicit, Size = 0xCD0)] // 6.4
 public unsafe struct AddonAOZNotebook
 {
     [FieldOffset(0x0)] public AtkUnitBase AtkUnitBase;

@@ -29,10 +29,10 @@ public unsafe struct CharacterData {
     [FieldOffset(0x36)] public short StatusEffectVFXId; // outdated since TitleID moved here
     [FieldOffset(0x36)] public ushort TitleID;
 
-    [FieldOffset(0x3A)] public byte ClassJob;
-    [FieldOffset(0x3B)] public byte Level;
+    [FieldOffset(0x38)] public byte ClassJob;
+    [FieldOffset(0x39)] public byte Level;
 
-    [FieldOffset(0x45)] public byte ShieldValue;
+    [FieldOffset(0x196F)] public byte ShieldValue;
 
-    [FieldOffset(0x47)] public byte OnlineStatus;
+    [FieldOffset(0x195A)] public byte OnlineStatus;
 }

@@ -96,13 +96,13 @@ public unsafe partial struct GameObject
     [VirtualFunction(47)]
     public partial uint GetNpcID();
 
-    [VirtualFunction(57)]
+    [VirtualFunction(56)] // 6.4
     public partial bool IsDead();
 
-    [VirtualFunction(58)]
+    [VirtualFunction(57)] // 6.4
     public partial bool IsNotMounted();
     
-    [VirtualFunction(61)]
+    [VirtualFunction(60)] // 6.4
     public partial bool IsCharacter();
 
     [MemberFunction("E8 ?? ?? ?? ?? 0F 28 74 24 ?? 80 3D")]

@@ -23,7 +23,7 @@ public unsafe partial struct InfoProxyCommonList
     [FieldOffset(0xA0)] public CharacterDict* Dict;
     [FieldOffset(0xA0)] public CharIndexEntry* CharIndex;
 
-    [MemberFunction("E8 ?? ?? ?? ?? 48 8B D0 48 8B CB E8 ?? ?? ?? ?? 41 C6 46")]
+    [MemberFunction("3B 51 10 ?? ?? 8B C2 48 8D 14 40 48 8B 81 98 00 00 00 48 C1 E2")] // 6.4
     public partial long GetContentIDForEntry(uint idx);
 
     [MemberFunction("E8 ?? ?? ?? ?? 48 85 FF 74 55")]

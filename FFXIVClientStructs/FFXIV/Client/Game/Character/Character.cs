@@ -8,9 +8,9 @@ namespace FFXIVClientStructs.FFXIV.Client.Game.Character;
 //   Client::Game::Object::GameObject
 //   Client::Graphics::Vfx::VfxDataListenner
 
-// size = 0x1B40
+// size = 0x1B20
 // ctor E8 ?? ?? ?? ?? 48 8B C8 48 8B 43 08 45 33 C9
-[StructLayout(LayoutKind.Explicit, Size = 0x1B40)]
+[StructLayout(LayoutKind.Explicit, Size = 0x1B40)] // 6.4
 [VTableAddress("48 8d 05 ?? ?? ?? ?? 48 8b d9 48 89 01 48 8d 05 ?? ?? ?? ?? 48 89 81 a0 01 00 00 48 8d 05 ?? ?? ?? ??", 3)]
 public unsafe partial struct Character
 {
@@ -38,50 +38,50 @@ public unsafe partial struct Character
     [FieldOffset(0x1DE), Obsolete("Use CharacterData.StatusEffectVFXId", false)] public short StatusEffectVFXId; // outdated since TitleID moved here
     [FieldOffset(0x1DE), Obsolete("Use CharacterData.TitleID", false)] public ushort TitleID;
 
-    [FieldOffset(0x1E2), Obsolete("Use CharacterData.ClassJob", false)] public byte ClassJob;
-    [FieldOffset(0x1E3), Obsolete("Use CharacterData.Level", false)] public byte Level;
+    [FieldOffset(0x1E0), Obsolete("Use CharacterData.ClassJob", false)] public byte ClassJob;
+    [FieldOffset(0x1E1), Obsolete("Use CharacterData.Level", false)] public byte Level;
 
-    [FieldOffset(0x1ED), Obsolete("Use CharacterData.ShieldValue", false)] public byte ShieldValue;
+    [FieldOffset(0x1B17), Obsolete("Use CharacterData.ShieldValue", false)] public byte ShieldValue;
 
-    [FieldOffset(0x1EF), Obsolete("Use CharacterData.OnlineStatus", false)] public byte OnlineStatus;
+    [FieldOffset(0x1B02), Obsolete("Use CharacterData.OnlineStatus", false)] public byte OnlineStatus;
 
     #endregion
 
-    [FieldOffset(0x641)] public byte CPoseState;
-    [FieldOffset(0x660)] public MountContainer Mount;
-    [FieldOffset(0x6C8)] public CompanionContainer Companion;
-    [FieldOffset(0x6E8)] public DrawDataContainer DrawData;
+    [FieldOffset(0x631)] public byte CPoseState;
+    [FieldOffset(0x650)] public MountContainer Mount;
+    [FieldOffset(0x6B0)] public CompanionContainer Companion;
+    [FieldOffset(0x6D0)] public DrawDataContainer DrawData;
 
-    [Obsolete($"Use {nameof(DrawData)}"), FieldOffset(0x830)] public fixed byte EquipSlotData[4 * 10];
-    [Obsolete($"Use {nameof(DrawData)}.CustomizeData"), FieldOffset(0x858)] public fixed byte CustomizeData[0x1A];
+    [Obsolete($"Use {nameof(DrawData)}"), FieldOffset(0x818)] public fixed byte EquipSlotData[4 * 10];
+    [Obsolete($"Use {nameof(DrawData)}.CustomizeData"), FieldOffset(0x840)] public fixed byte CustomizeData[0x1A];
 
-    [FieldOffset(0x878)] public OrnamentContainer Ornament;
-    [FieldOffset(0x920)] public ActionTimelineManager ActionTimelineManager;
+    [FieldOffset(0x860)] public OrnamentContainer Ornament;
+    [FieldOffset(0x8F0)] public ActionTimelineManager ActionTimelineManager;
 
-    [FieldOffset(0xCB0)] public uint PlayerTargetObjectID;
+    [FieldOffset(0xC80)] public uint PlayerTargetObjectID;
 
-    [FieldOffset(0x17C0)] public Balloon Balloon;
+    [FieldOffset(0x1790)] public Balloon Balloon;
 
-    [FieldOffset(0x19C8)] public VfxData* VfxData; 
-    [FieldOffset(0x19D0)] public VfxData* VfxData2;
-    [FieldOffset(0x19F8)] public VfxData* Omen;
+    [FieldOffset(0x1998)] public VfxData* VfxData; 
+    [FieldOffset(0x19A0)] public VfxData* VfxData2;
+    [FieldOffset(0x19C8)] public VfxData* Omen;
 
-    [FieldOffset(0x1A4C)] public float Alpha;
-    [FieldOffset(0x1A80)] public Companion* CompanionObject; // minion
-    [FieldOffset(0x1A98)] public fixed byte FreeCompanyTag[6];
-    [FieldOffset(0x1AB8)] public ulong TargetObjectID;
+    [FieldOffset(0x1A1C)] public float Alpha;
+    [FieldOffset(0x1A50)] public Companion* CompanionObject; // minion
+    [FieldOffset(0x1A68)] public fixed byte FreeCompanyTag[6];
+    [FieldOffset(0x1A88)] public ulong TargetObjectID;
 
-    [FieldOffset(0x1B00)] public uint NameID;
+    [FieldOffset(0x1AD8)] public uint NameID;
 
-    [FieldOffset(0x1B1C)] public ushort CurrentWorld;
-    [FieldOffset(0x1B1E)] public ushort HomeWorld;
+    [FieldOffset(0x1AF4)] public ushort CurrentWorld;
+    [FieldOffset(0x1AF6)] public ushort HomeWorld;
 
-    [FieldOffset(0x1B24)] public ushort VoiceId;
-    [FieldOffset(0x1B26)] public byte EventState; // Leave for backwards compat. See Mode.
-    [FieldOffset(0x1B26)] public CharacterModes Mode;
-    [FieldOffset(0x1B27)] public byte ModeParam; // Different purpose depending on mode. See CharacterModes for more info.
-    [FieldOffset(0x1B29)] public byte Battalion; // used for determining friend/enemy state
-    [FieldOffset(0x1B10)] public uint CompanionOwnerID;
+    [FieldOffset(0x1AFE)] public ushort VoiceId;
+    [FieldOffset(0x1B00)] public byte EventState; // Leave for backwards compat. See Mode.
+    [FieldOffset(0x1B00)] public CharacterModes Mode;
+    [FieldOffset(0x1B01)] public byte ModeParam; // Different purpose depending on mode. See CharacterModes for more info.
+    [FieldOffset(0x1B03)] public byte Battalion; // used for determining friend/enemy state
+    [FieldOffset(0x1AE8)] public uint CompanionOwnerID;
 
     // Note: These 2 status flags might be just an ushort instead of 2 separate bytes.
 
@@ -89,7 +89,7 @@ public unsafe partial struct Character
     // 0x10 = IsHostile
     // 0x20 = InCombat 
     // 0x40 = OffHandDrawn
-    [FieldOffset(0x1F2)] public byte StatusFlags;
+    [FieldOffset(0x1B1B)] public byte StatusFlags;  // 6.4
 
     // 0x1 = Unknown
     // 0x2 = Unknown (always on for some reason?)
@@ -97,26 +97,27 @@ public unsafe partial struct Character
     // 0x8 = PartyMember
     // 0x10 = AllianceMember
     // 0x20 = Friend
-    [FieldOffset(0x1F3)] public byte StatusFlags2;
+    [FieldOffset(0x1B1B)] public byte StatusFlags2; // 6.4
+
     // 0x1 = WeaponDrawn
     // 0x2 = Unknown (Appears to always be set)
-    [FieldOffset(0x1B38)] public byte StatusFlags3;
+    [FieldOffset(0x1B1B)] public byte StatusFlags3;
     // 0x20 = GPose wetness toggled
-    [FieldOffset(0x1B3A)] public byte StatusFlags4;
+    [FieldOffset(0x1B1F)] public byte StatusFlags4;
 
-    public bool IsWeaponDrawn => (StatusFlags3 & 0x1) == 0x1;
-    public bool IsOffhandDrawn => (StatusFlags & 0x40) == 0x40;
-    public bool InCombat => (StatusFlags & 0x20) == 0x20;
-    public bool IsHostile => (StatusFlags & 0x10) == 0x10;
+    public bool IsWeaponDrawn => (StatusFlags3 & 0x4) == 0x4;
+    public bool IsOffhandDrawn => (StatusFlags & 0x10) == 0x10;
+    public bool InCombat => false;
+    public bool IsHostile => false;
     public bool IsCasting => GetCastInfo() != null && (GetCastInfo()->IsCasting & 0x1) == 0x1;
-    public bool IsPartyMember => (StatusFlags2 & 0x8) == 0x8;
-    public bool IsAllianceMember => (StatusFlags2 & 0x10) == 0x10;
-    public bool IsFriend => (StatusFlags2 & 0x20) == 0x20;
+    public bool IsPartyMember => (StatusFlags2 & 0x02) == 0x2;
+    public bool IsAllianceMember => (StatusFlags2 & 0x40) == 0x40;
+    public bool IsFriend => (StatusFlags2 & 0x80) == 0x80;
 
     public bool IsGPoseWet
     {
-        get => (StatusFlags4 & 0x20) == 0x20;
-        set => StatusFlags4 = (byte) (value ? StatusFlags4 | 0x20 : StatusFlags4 & ~0x20);
+        get => (StatusFlags4 & 0x80) == 0x80;
+        set => StatusFlags4 = (byte) (value ? StatusFlags4 | 0x80 : StatusFlags4 & ~0x80);
     }
 
     [MemberFunction("E8 ?? ?? ?? ?? 49 3B C7 0F 84")]
@@ -138,7 +139,7 @@ public unsafe partial struct Character
     [MemberFunction("E8 ?? ?? ?? ?? 45 0F B6 86 ?? ?? ?? ?? 33 D2")]
     public partial void SetupBNpc(uint bNpcBaseId, uint bNpcNameId = 0);
 
-    [VirtualFunction(79)]
+    [VirtualFunction(78)]
     public partial StatusManager* GetStatusManager();
 
     /// <summary>
@@ -146,13 +147,13 @@ public unsafe partial struct Character
     /// May be null for certain Character subclasses, e.g. <see cref="Companion"/>.
     /// </summary>
     /// <returns>Returns a pointer to a CastInfo struct, or <c>null</c>.</returns>
-    [VirtualFunction(81)]
+    [VirtualFunction(80)]
     public partial CastInfo* GetCastInfo();
 
-    [VirtualFunction(85)]
+    [VirtualFunction(84)]
     public partial ForayInfo* GetForayInfo();
 
-    [VirtualFunction(87)]
+    [VirtualFunction(86)]
     public partial bool IsMount();
     
     [StructLayout(LayoutKind.Explicit, Size = 0x170)]

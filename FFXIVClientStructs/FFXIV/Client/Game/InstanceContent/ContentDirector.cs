@@ -2,7 +2,7 @@
 
 namespace FFXIVClientStructs.FFXIV.Client.Game.InstanceContent;
 
-[StructLayout(LayoutKind.Explicit, Size = 0xC40)]
+[StructLayout(LayoutKind.Explicit, Size = 0xC38)] // 6.4
 public struct ContentDirector
 {
 	[FieldOffset(0x00)] public Director Director;
