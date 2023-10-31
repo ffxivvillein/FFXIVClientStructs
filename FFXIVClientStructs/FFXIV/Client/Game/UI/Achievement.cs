@@ -26,7 +26,7 @@ public unsafe partial struct Achievement
     /// <summary> Check if an achievement is complete. </summary>
     /// <param name="achievementId">Achievement ID to check against. This is the ID from the Achievement table. </param>
     /// <returns> Returns true if the achievement is complete. </returns>
-    [MemberFunction("E8 ?? ?? ?? ?? 04 30")]
+    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 ?? 83 8C")]
     public partial bool IsComplete(int achievementId);
 
     /// <summary> Check if the achievement data has been "loaded" from the server. </summary>
